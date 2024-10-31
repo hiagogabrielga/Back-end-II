@@ -1,11 +1,21 @@
-const express = require('express');
-const colecaoUf = require('./dados/dados.js');
+import express from "express";
+import colecaoUf from "./dados/dados.js";
 
 const app = express();
 
+const consultarUf = (nomeUf) => {
+    return colecaoUf.filter(uf => uf.nome.toLowerCase().includes(nomeUf.toLowerCase()))
+}
+
 app.get('/ufs', (req, res) => {
-    res.json(colecaoUf.colecaoUf);
-});
+    const nomeUf = req.query.busca;
+    const resultado = nomeUf ? consultarUf(nomeUf) : colecaoUf;
+    if (resultado.length > 0){
+        res.json(resultado)
+    } else {
+        res.status(404).send({"erro": "nenhuma UF encontrdas"})
+    }
+}); 
 
 app.get('/ufs/:iduf', (req, res) => {
     const idUF = parseInt(req.params.iduf);

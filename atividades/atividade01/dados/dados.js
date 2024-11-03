@@ -64,4 +64,6 @@ const listaPart = [
     }
 ]
 
-exports.listaPart = listaPart;
+//exports.listaPart = listaPart;
+
+export default listaPart;

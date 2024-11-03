@@ -1,10 +1,13 @@
-const express = require('express');
-const dadosLista = require('./dados/dados.js')
+import express from "express";
+import listaPart from "./dados/dados.js";
 
-const app = express()
+//const express = require('express');
+//const dadosLista = require('./dados/dados.js')
+
+const app = express();
 
 app.get('/listaPartes', (req,res) => {
-    res.json(dadosLista.listaPart)
+    res.json(listaPart)
 })
 
 app.get('/listaPartes/:idPa', (req, res) => {
@@ -12,7 +15,7 @@ app.get('/listaPartes/:idPa', (req, res) => {
     let parte;
     let mensagemErro = "";
     if (!(isNaN(idPa))) {
-        parte = dadosLista.listaPart.find(u => u.id === idPa)
+        parte = listaPart.find(u => u.id === idPa)
         if(!(parte)){
             mensagemErro = "Parte não encontrada"
         }
@@ -27,6 +30,6 @@ app.get('/listaPartes/:idPa', (req, res) => {
     } 
 })
 
-app.listen(8080, () =>{
-    console.log("Seridor iniciado com sucesso na porta 8080", Date())
+app.listen(8081, () => {
+    console.log("Servidor iniciado com sucesso na porta 8081", Date())
 })

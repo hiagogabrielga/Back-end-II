@@ -1,5 +1,8 @@
-const express = require('express');
-const colecaoUf = require('./dados/dados.js');
+//const express = require('express'); //Devido a alteração do do arquivo "package.json" essa linha não é mais funcional.
+//const colecaoUf = require('./dados/dados.js'); //Devido a alteração do do arquivo "package.json" essa linha não é mais funcional.
+
+import express from "express";
+import colecaoUf from "./dados/dados.js";
 
 const app = express();
 

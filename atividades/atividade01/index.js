@@ -30,6 +30,6 @@ app.get('/listaPartes/:idPa', (req, res) => {
     } 
 })
 
-app.listen(8081, () => {
+app.listen(8080, () => {
     console.log("Servidor iniciado com sucesso na porta 8081", Date())
 })
